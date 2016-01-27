@@ -18,30 +18,13 @@
     </head>
     <body>
         <%
-            Object userName=request.getAttribute("name");
-            Object userHour=request.getAttribute("hour");
-            
-            int hour=0;
-            if(userHour!=null){
-                hour=Integer.parseInt(userHour.toString());
-            }
-            
-            String tod;
-            if(hour>0&&hour<12){
-                tod="Morning";
-            }
-            else if(hour>12&&hour<17){
-                tod="Afternoon";
-            }
-            else{
-                tod="Evening";
-            }
-            
-            if(userName!=null){
+            Object message=request.getAttribute("message");
+            if(message!=null){
                 out.println("<h1>");
-                out.println("Good "+tod+", "+userName.toString());
+                out.println(message.toString());
                 out.println("</h1>");
             }
+            
         %>
     </body>
 </html>

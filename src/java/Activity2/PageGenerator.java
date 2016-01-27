@@ -43,8 +43,9 @@ public class PageGenerator extends HttpServlet {
             String hour=format.format(time);
             
                                //Allias| Variable
-            request.setAttribute("name", name);
-            request.setAttribute("hour", hour);
+           
+            TimeOfDayService todService=new TimeOfDayService();
+            request.setAttribute("message", todService.getTODMessage(hour,name));
             
             RequestDispatcher view=request.getRequestDispatcher("/timeofdayresponse.jsp");
             view.forward(request, response);
